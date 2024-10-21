@@ -5,8 +5,43 @@ output:
     toc: true
     toc_float: true
 ---
+### Create a repo
 
-# This is Jeff's awesome website
+* To create a personal website: `<YOUR_GH_NAME>.github.io`
+* General format for links: `[text for link](address.of.link)`
+* Websites has more than another page: create another RMD file with `html` output and link it to the home page RMD file.html.
+* To include images:
+  * `![](image.jpg)`
+  * `<img src="images/image.jpg" style="width:75%">`: better option (usually keep images inside `images` folder, `style` components control image height, width, etc)
+
+
+### `_site.yml`
+Create a `_site.yml` file by going to File > New File > Text file and save as `_site.yml`.
+
+* Controls the structure and appearance of the website. It provides configuration options for the website's layout, navigation, styling, and other settings.
+* Check `_site.yml` file in this project folder for reference.
+  * Use `icons`: an easy way for someone to email you, and a link to the source for the site on GitHub. ([check for more icons](https://fontawesome.com/icons))
+
+### Template 
+Use `website_template` folder to create a website.
+
+### R project
+To build the webite that has multiple RMD pages:
+Go to `Build` in Environment pane > Click on  `Build Website`
+
+### Hosting on Github
+Sometimes you have to update the repo settings for GitHub to know this is a website, especially for websites that are not `<YOUR_GH_NAME>.github.io`:
+
+* Make sure you’ve pushed what you have to GitHub
+* Log in to GitHub, find the repo, and navigate to repo settings
+* Set the GitHub pages source to the main branch
+
+### To add a default theme
+[Go to this link](https://bootswatch.com/3/). Can add a default theme to YAML.
+
+### Example Exercise
+
+#### This is Stella's awesome website
 
 ![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
 

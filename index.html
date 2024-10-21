@@ -355,8 +355,72 @@ div.tocify {
 </div>
 
 
-<div id="this-is-jeffs-awesome-website" class="section level1">
-<h1>This is Jeff’s awesome website</h1>
+<div id="create-a-repo" class="section level3">
+<h3>Create a repo</h3>
+<ul>
+<li>To create a personal website:
+<code>&lt;YOUR_GH_NAME&gt;.github.io</code></li>
+<li>General format for links:
+<code>[text for link](address.of.link)</code></li>
+<li>Websites has more than another page: create another RMD file with
+<code>html</code> output and link it to the home page RMD
+file.html.</li>
+<li>To include images:
+<ul>
+<li><code>![](image.jpg)</code></li>
+<li><code>&lt;img src="images/image.jpg" style="width:75%"&gt;</code>:
+better option (usually keep images inside <code>images</code> folder,
+<code>style</code> components control image height, width, etc)</li>
+</ul></li>
+</ul>
+</div>
+<div id="site.yml" class="section level3">
+<h3><code>_site.yml</code></h3>
+<p>Create a <code>_site.yml</code> file by going to File &gt; New File
+&gt; Text file and save as <code>_site.yml</code>.</p>
+<ul>
+<li>Controls the structure and appearance of the website. It provides
+configuration options for the website’s layout, navigation, styling, and
+other settings.</li>
+<li>Check <code>_site.yml</code> file in this project folder for
+reference.
+<ul>
+<li>Use <code>icons</code>: an easy way for someone to email you, and a
+link to the source for the site on GitHub. (<a
+href="https://fontawesome.com/icons">check for more icons</a>)</li>
+</ul></li>
+</ul>
+</div>
+<div id="template" class="section level3">
+<h3>Template</h3>
+<p>Use <code>website_template</code> folder to create a website.</p>
+</div>
+<div id="r-project" class="section level3">
+<h3>R project</h3>
+<p>To build the webite that has multiple RMD pages: Go to
+<code>Build</code> in Environment pane &gt; Click on
+<code>Build Website</code></p>
+</div>
+<div id="hosting-on-github" class="section level3">
+<h3>Hosting on Github</h3>
+<p>Sometimes you have to update the repo settings for GitHub to know
+this is a website, especially for websites that are not
+<code>&lt;YOUR_GH_NAME&gt;.github.io</code>:</p>
+<ul>
+<li>Make sure you’ve pushed what you have to GitHub</li>
+<li>Log in to GitHub, find the repo, and navigate to repo settings</li>
+<li>Set the GitHub pages source to the main branch</li>
+</ul>
+</div>
+<div id="to-add-a-default-theme" class="section level3">
+<h3>To add a default theme</h3>
+<p><a href="https://bootswatch.com/3/">Go to this link</a>. Can add a
+default theme to YAML.</p>
+</div>
+<div id="example-exercise" class="section level3">
+<h3>Example Exercise</h3>
+<div id="this-is-stellas-awesome-website" class="section level4">
+<h4>This is Stella’s awesome website</h4>
 <p><img
 src="https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif" /></p>
 <p>Sometimes I use <a href="https://www.google.com/">google</a> to do
@@ -366,6 +430,7 @@ data science when I’m stuck.</p>
 <p><img src="Scottish-fold-cat.jpg" style="width:75%"></p>
 <p>If you’d like to learn more about this website, visit <a
 href="about.html">this page</a></p>
+</div>
 </div>
 
 
