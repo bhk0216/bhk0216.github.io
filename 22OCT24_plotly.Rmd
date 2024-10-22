@@ -6,8 +6,9 @@ output:
     toc_float: true
 ---
 
-Today we're making interactive plots in plotly. We'll make examples using the NYC airbnb dataset.
+Plotly is a flexible framework for producing interactive graphics.
 
+## Load `plotly` Library
 ```{r message = FALSE}
 library(tidyverse)
 library(p8105.datasets)
@@ -15,8 +16,8 @@ library(p8105.datasets)
 library(plotly)
 ```
 
-Do some initial data cleaning / subsetting.
-
+## Initial data cleaning & subsetting
+We are going to use Airbnb dataset for this lecture:
 ```{r}
 data("nyc_airbnb")
 
@@ -34,9 +35,8 @@ nyc_airbnb =
 
 ```
 
-Use plotly to make some quick plots.
-
-Scatterplot
+## `plotly` Scatterplot
+`text = ~text_label` includes desired information for each point in the scatterplot.
 ```{r}
 nyc_airbnb |> 
   mutate(text_label = 
@@ -48,7 +48,7 @@ nyc_airbnb |>
   )
 ```
 
-Box plot 
+## `plotlib` Box plot 
 ```{r}
 nyc_airbnb |>
   mutate(neighbourhood = fct_reorder(neighbourhood, price)) |>
@@ -56,7 +56,7 @@ nyc_airbnb |>
           type = "box", colors = "viridis")
 ```
 
-Bar chart 
+## `plotly` Bar chart 
 ```{r}
 nyc_airbnb |>
   count(neighbourhood) |>
@@ -65,6 +65,7 @@ nyc_airbnb |>
           type = "bar")
 ```
 
+## `plotly` Other Graphs (from cheatsheet)
 ```{r}
 plot_ly(z = volcano, type = "heatmap")
 ```
@@ -78,4 +79,26 @@ plot_ly(
   z = c( 10, 20, 40 )) |>
   layout(geo = list(scope = "usa"))
 ```
+
+## `ggplotly`
+Can convert a `ggplot` object straight to an interactive graphic using `ggplotly`. 
+
+```{r}
+scatter_ggplot = 
+  nyc_airbnb |>
+  ggplot(aes(x = lat, y = long, color = price)) +
+  geom_point(alpha = 0.25) +
+  coord_cartesian()
+
+ggplotly(scatter_ggplot)
+```
+
+## `flexdashboard`
+To create dashboard:
+
+* Can specify `flex_dashboard` as the output format in your R Markdown YAML.
+* Can also use default dashboard: `File > New File > R Markdown > From Template`
+
+Check `Dashboard` on the website or `flex_dashboard.RMD` for more information.
+
 

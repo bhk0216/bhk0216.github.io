@@ -5,10 +5,8 @@ navbar:
   right:
     - text: "About"
       href: about.html
-    - text: "Plots"
-      href: plots.html
     - text: "Plotly"
-      href: plotly.html
+      href: "22OCT24_plotly.html"
     - text: "Dashboard"
       href: flex_dashboard.html
     - icon: fa-envelope fa-lg
