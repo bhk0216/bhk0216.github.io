@@ -1,23 +1,23 @@
 ---
-title: "Plotly"
+title: "Flex Dashboard"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
-Today we're making interactive plots in plotly. We'll make examples using the NYC airbnb dataset.
+```{r setup, include=FALSE, message = FALSE}
+# Required Libraries
+library(flexdashboard)
 
-```{r message = FALSE}
 library(tidyverse)
 library(p8105.datasets)
 
 library(plotly)
 ```
 
-Do some initial data cleaning / subsetting.
-
 ```{r}
+# Dataset
 data("nyc_airbnb")
 
 nyc_airbnb =
@@ -34,9 +34,23 @@ nyc_airbnb =
 
 ```
 
-Use plotly to make some quick plots.
+Column {data-width=650}
+-----------------------------------------------------------------------
 
-Scatterplot
+### Chart A
+
+```{r}
+nyc_airbnb |>
+  mutate(neighbourhood = fct_reorder(neighbourhood, price)) |>
+  plot_ly(x = ~neighbourhood, y = ~price, color = ~neighbourhood,
+          type = "box", colors = "viridis")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
 ```{r}
 nyc_airbnb |> 
   mutate(text_label = 
@@ -48,34 +62,13 @@ nyc_airbnb |>
   )
 ```
 
-Box plot 
-```{r}
-nyc_airbnb |>
-  mutate(neighbourhood = fct_reorder(neighbourhood, price)) |>
-  plot_ly(x = ~neighbourhood, y = ~price, color = ~neighbourhood,
-          type = "box", colors = "viridis")
-```
+### Chart C
 
-Bar chart 
 ```{r}
 nyc_airbnb |>
   count(neighbourhood) |>
   mutate(neighbourhood = fct_reorder(neighbourhood, n)) |>
   plot_ly(x = ~neighbourhood, y = ~n,
           type = "bar")
-```
-
-```{r}
-plot_ly(z = volcano, type = "heatmap")
-```
-
-```{r}
-plot_ly(
-  type = "choropleth",
-  locations = c("AZ", "CA", "VT"), 
-  locationmode = "USA-states",
-  colorscale = "viridis", 
-  z = c( 10, 20, 40 )) |>
-  layout(geo = list(scope = "usa"))
 ```
 
